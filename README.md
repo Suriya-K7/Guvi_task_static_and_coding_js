@@ -1,11 +1,28 @@
-# [🔗 GUVI Day three task](https://suriya-k7.github.io/Guvi_day_3_task/)
+# [🔗 GUVI Day four task](https://suriya-k7.github.io/Guvi_day_4_task/)
 
-- how to compare two JSON have same properties without order in javascript? let obj1={name:"person",age:5} , let obj2={age:5, name:"person"}
-- use the rest countries API URL-> https://restcountries.com/v3.1/all and display all the country flags in the console
-- use the same rest countries API and print all the countries names, regions sun-regions & population
+- Do the below programs in anonymous function & IIFE
+  - Print odd numbers in an array
+  - Convert all the strings to title caps in a string array
+  - Sum of all numbers in an array
+  - Return all the prime numbers in an array
+  - Return all the palindromes in an array
+  - Return median of two sorted arrays of the same size.
+  - Remove duplicates from an array
+  - Rotate an array by k times
+
+---
+
+- Do the below programs in arrow functions.
+  - Print odd numbers in an array
+  - Convert all the strings to title caps in a string array
+  - Sum of all numbers in an array
+  - Return all the prime numbers in an array
+  - Return all the palindromes in an array
+
+---
 
 ## Created task deployed on below link :
 
-https://suriya-k7.github.io/Guvi_day_3_task/
+<a href="https://suriya-k7.github.io/Guvi_day_4_task/" target="_blank">https://suriya-k7.github.io/Guvi_day_4_task/</a>
 
 > <h2 style="color:yellow;text-decoration:underline;">Note: Javascript files for all mentioned task stored in JS folder kindly check</h2>
