@@ -4,427 +4,315 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day 04 - task</title>
+    <title>Day 05 - task</title>
     <link rel="stylesheet" href="./CSS/style.css" />
   </head>
   <body>
-    <header>
-      Day four - Task (by - Udhayasooriyan)
-      <span
-        >Note : all code shown below already executed on the same page, kindly
-        check console.log</span
-      >
-    </header>
+    <header>Day five - Task (by - Udhayasooriyan)</header>
     <nav>
-      <a href="#fun">Program using Function</a>
-      <a href="#iife">Program using IIFE</a>
-      <a href="#arrow">Program using Arrow function</a>
+      <a href="#method">JSON Iterating methods</a>
+      <a href="#resume">Json format Resume Data</a>
+      <a href="#dif">diff b/w window, screen, document</a>
     </nav>
-    <div class="wrapper" id="fun">
-      <h1>Program using Function</h1>
-      <h3>1) Print odd numbers in an array</h3>
+    <div class="wrapper" id="method">
+      <h1>JSON iterate methods using (for, for in, for of, forEach)</h1>
+      <h2>JavaScript Loops</h2>
+      <p class="intend">
+        Loops are handy, if you want to run the same code over and over again,
+        each time with a different value.Often this is the case when working
+        with arrays.
+      </p>
+      <h2>Different Kinds of Loops</h2>
+      <pre>JavaScript supports different kinds of loops:</pre>
+      <ul>
+        <li>
+          <span>for -</span> loops through a block of code a number of times
+        </li>
+        <li><span>for/in -</span> loops through the properties of an object</li>
+        <li>
+          <span>for/of -</span> loops through the values of an iterable object
+        </li>
+        <li>
+          <span>forEach -</span> loops through a block of code while a specified
+          condition is true
+        </li>
+      </ul>
+      <hr />
+      <h3>iteration using for loop</h3>
+      <pre>The for statement creates a loop with 3 optional expressions:</pre>
       <code>
         <pre>
-
-          function odd(arr){
-              let result=[];
-              for(i=0;i< arr.length;i++){
-                  if(arr[i]%2==1){
-                      result.push(arr[i])
-                  }
-              }
-              return result;
+          for (expression 1; expression 2; expression 3) {
+            // code block to be executed
           }
-          let array=[1,2,3,4,5,6,7,8,9]
-          console.log(odd(array)); //output will be [1,3,5,7,9]
         </pre>
       </code>
-      <h3>2) Convert all the strings to title caps in a string array</h3>
+      <h3>on above statement:</h3>
+      <p>
+        expression 1: it can be declared outside for loop; <br />
+        expression 2: is mandatory, but if not declared, loop will never end.
+        for we need to put break when required.
+        <br />
+        expression 3: can do anything like negative increment (i--), positive
+        increment (i = i + 15), or anything else as per requirement for looping.
+      </p>
+      <h3>example shown below</h3>
       <code>
         <pre>
-
-          function caps(arr){
-            let result=[];
-            for(i=0;i< arr.length;i++){
-                    result.push(arr[i].toUpperCase())
-            }
-            return result;
+          let employees=[
+          {"firstName":"John", "lastName":"Doe"},
+          {"firstName":"Anna", "lastName":"Smith"},
+          {"firstName":"Peter", "lastName":"Jones"}
+          ]
+        
+          for(i=0;i < employees.length;i++){
+              console.log(employees[i])
           }
-          let array=['s','u','r','i','y','a']
-          console.log(caps(array));
-          //output will be [ 'S', 'U', 'R', 'I', 'Y', 'A' ]
+          output will be :
+          { firstName: 'John', lastName: 'Doe' }
+          { firstName: 'Anna', lastName: 'Smith' }
+          { firstName: 'Peter', lastName: 'Jones' }
         </pre>
       </code>
-      <h3>3) Sum of all numbers in an array</h3>
+      <i>above code iterated 3 time and printed 3 results.</i>
+      <br />
+      <i class="line"
+        >Note: above code already executed on same page, please check
+        console.log</i
+      >
+      <hr />
+      <h3>iteration using for in loop</h3>
+      <p>
+        The JavaScript for in statement loops through the properties of an
+        Object:
+      </p>
       <code>
         <pre>
-
-          function sum(arr){
-            let result=0;
-            for(i=0;i< arr.length;i++){
-                    result+=+arr[i];
-            }
-            return result;
+          syntax
+          for (key in object) {
+            // code block to be executed
           }
-          let array=[1,2,3,4,5,6,7,8,9]
-          console.log(sum(array)); //output will be 45
         </pre>
       </code>
-      <h3>4) Return all the prime numbers in an array</h3>
+      <ul>
+        <li>The for in loop iterates over a mentioned object</li>
+        <li>Each iteration returns a key</li>
+        <li>The key is used to access the value of the key</li>
+        <li>The value of the key is mentioned object key's value</li>
+      </ul>
+      <p>example shown below</p>
       <code>
         <pre>
-          function findPrimes(arr) {
-            const primes = [];
-            for (let i = 0; i < arr.length; i++) {
-              let isPrime = true;
-              for (let j = 2; j < arr[i]; j++) {
-                if (arr[i] % j === 0) {
-                  isPrime = false;
-                  break;
-                }
-              }
-              if (isPrime && arr[i] > 1) {
-                primes.push(arr[i]);
-              }
-            }
-            return primes;
-          }
-          let array=[1,2,3,4,5,6,7,8,9,11,13,17,19]
-          console.log(findPrimes(array))
-          //output will be[2,3,5,7,11,13,17,19]
+          let person = {fname:"John", lname:"Doe", age:25};
+          for (let key in person) {
+            console.log(`${key} : ${person[key]}`)
+          } 
+          output will be :
+          fname : John
+          lname : Doe
+          age : 25
         </pre>
       </code>
-      <h3>5) Return all the palindromes in an array</h3>
+      <i>
+        above code iterated as per keys in an object and printed the results.
+        FYI this also can be used to iterate arrays also.
+      </i>
+      <br />
+      <i class="line"
+        >Note: above code already executed on same page, please check
+        console.log</i
+      >
+      <hr />
+      <h3>iteration using for of loop</h3>
+      <p>
+        The JavaScript for of statement loops through the values of an iterable
+        object.
+      </p>
+      <p>
+        It lets you loop over iterable data structures such as Arrays, Strings,
+        Maps, NodeLists, and more:
+      </p>
       <code>
         <pre>
-          
-          let data=['nitin','malayalam','suriya','madam'];
-          let palindromesArray=[];
-          function palindromes(data){
-              for(i=0;i< data.length;i++){
-                  if(data[i]== data[i].split('').reverse().join('')){
-                      palindromesArray.push(data[i]);
-                  }
-              }
-              return palindromesArray;
-            }
-          palindromes(data)//if forward & backward of 
-          sentence is same, then it will be displayed.
+          syntax
+          for (variable of iterable) {
+            // code block to be executed
+          }
         </pre>
       </code>
-      <h3>6) Return median of two sorted arrays of the same size.</h3>
+      <ul>
+        <li>
+          variable - For every iteration the value of the next property is
+          assigned to the variable. Variable can be declared with const, let, or
+          var.
+        </li>
+        <li>iterable - An object that has iterable properties.</li>
+      </ul>
+      <p>example shown below</p>
       <code>
         <pre>
-          function median(a,b){
-            let concat=[...a,...b];
-            let result=[];
-            let length=concat.length;
-            if(length%2==0){
-                result.push(concat[length/2-1],concat[length/2])
-            }else{
-                result.push(concat[Math.floor(length/2)])
-            }
-            return result;
+          let person = {fname:"John", lname:"Doe", age:25};
+          for (let key of Object.keys(person)) {
+            console.log(`${key} : ${person[key]}`)
           }
-          let a=[1,2,3,4];
-          let b=[5,6,7,8];
-          console.log(median(a,b))//if input total length
-          is even will return median as two dight, if oreturn one dight 
+          output will be :
+          fname : John
+          lname : Doe
+          age : 25
         </pre>
       </code>
-      <h3>7) Remove duplicates from an array</h3>
+      <i>
+        above code iterated as per keys in an object and printed the results.
+        FYI this also can be used to iterate arrays, map, set also
+      </i>
+      <br />
+      <i class="line"
+        >Note: above code already executed on same page, please check
+        console.log</i
+      >
+      <hr />
+      <h3>iteration using forEach method</h3>
+      <p>The forEach() method calls a function for each element in an array.</p>
+      <p>Note : The forEach() method is not executed for empty elements.</p>
       <code>
         <pre>
-
-    <i>method 1: by indexof</i> 
-          const arr = [1, 2, 2, 3, 4, 4, 5];
-            function indexMethod(arr){
-            let unique = arr.filter((item, index) => {
-            return arr.indexOf(item) === index;});
-            return unique;
-          }
-          console.log(indexMethod(arr));
-          //output will be [ 1, 2, 3, 4, 5 ]
-
-    <i>method 2: by using set</i> 
-            function setMethod(arr){
-              return [...new Set(arr)];
-            }
-            console.log(setMethod(arr));
-            //output will be [ 1, 2, 3, 4, 5 ]        </pre>
+          syntax
+          array.forEach(function(currentValue, index, arr), thisValue)</pre
+        >
       </code>
-      <h3>8) Rotate an array by k times</h3>
+      <ul>
+        <h3>parameters</h3>
+        <li>
+          <i>function()</i> -- Required. A function to run for each array
+          element.
+        </li>
+        <li>
+          currentValue<i></i> -- Required. The value of the current element.
+        </li>
+        <li>index<i></i> -- Optional. The index of the current element.</li>
+        <li>arr<i></i> -- Optional. The array of the current element.</li>
+        <li>
+          thisValue<i></i> -- Optional. Default undefined. A value passed to the
+          function as its this value.
+        </li>
+      </ul>
+      <p>example shown below</p>
       <code>
         <pre>
-          let arr=[1,2,3,4,5];
-          let k=3;
-          function arrayRotation(a,b){
-              let result=[];
-          for(z=0;z< a.length;z++){
-              result.push(0)
-          }
-          for(i=0;i< b;i++){
-              for(j=0;j< a.length;j++){
-                  if(j==0){
-                      result[a.length-1]=a[0]
-                  }      
-                  else{
-                  result[j-1]=a[j]
-                  }
-                  if(j==a.length-1){
-                      a=[...result];
-                  }
-              }
-          }
-          return a;
-          }
-          console.log(arrayRotation(arr,k));
-          // output will be array with k times rotated
+          let person = {fname:"John", lname:"Doe", age:25};
+          Object.keys(person).forEach(function(key) {
+            console.log(`${key} : ${person[key]}`);
+          });
+          output will be :
+          fname : John
+          lname : Doe
+          age : 25
         </pre>
       </code>
+      <i>
+        Note: Under ECMAScript 5, you have to combine Object.keys() and
+        Array.prototype.forEach(): for using forEach method in object
+      </i>
+      <br />
+      <i class="line"
+        >Note: above code already executed on same page, please check
+        console.log</i
+      >
     </div>
-    <div class="wrapper" id="iife">
-      <h1>Program using Function(IIFE)</h1>
-      <h3>1) Print odd numbers in an array</h3>
+    <div class="wrapper" id="resume">
+      <h1>Creating Resume in Json format</h1>
       <code>
         <pre>
-
-          (function odd(arr){
-            let result=[];
-            for(i=0;i< arr.length;i++){
-                if(arr[i]%2==1){
-                result.push(arr[i])
-                }
-            }
-            console.log(result);
-          })([1,2,3,4,5,6,7,8,9]) 
-          //output will be [1,3,5,7,9]
-        </pre>
+{ "Name": "Udhayasooriyan Kesavamurthy",
+"email": "usraising@gmail.com",
+"phone": "7639718893",
+"address": {
+"street": "17 west street, injikudi",
+"city": "Thiruvarur",
+"state": "Tamil Nadu",
+"Pin code": "609405"
+},
+"summary": "Experienced software developer with a focus on web applications and a passion for problem-solving.",
+"work_experience":{
+"company": "XYZ Inc",
+"position": "Full Stack Developer",
+"start_date": "zzzz-yy-xx",
+"end_date": "zzzz-yy-xx",
+"description": "Developed and maintained web applications using Node.js, React, and MongoDB."
+},
+"education":{
+"degree": "Diploma of Electrical & Electronics Engineering",
+"institution": "AVC Polytechnic college",
+"graduation_year": "2012"},
+"skills": [
+{"category": "Programming Languages",
+"items": ["Java", "JavaScript", "Python"]
+},
+{"category": "Frameworks and Libraries",
+"items": ["JavaScript", "React", "Node.js"]},
+{"category": "Databases",
+"items": ["MySQL", "MongoDB"]}
+]}
+</pre
+        >
       </code>
-      <h3>2) Convert all the strings to title caps in a string array</h3>
-      <code>
-        <pre>
-
-          (function caps(arr){
-            let result=[];
-            for(i=0;i< arr.length;i++){
-                    result.push(arr[i].toUpperCase())
-            }
-            console.log(result);
-          })(['s','u','r','i','y','a'])
-          //output will be [ 'S', 'U', 'R', 'I', 'Y', 'A' ]
-        </pre>
-      </code>
-      <h3>3) Sum of all numbers in an array</h3>
-      <code>
-        <pre>
-
-          (function sum(arr){
-            let result=0;
-            for(i=0;i< arr.length;i++){
-                    result+=+arr[i];
-            }
-            console.log(result);
-          })([1,2,3,4,5,6,7,8,9])
-            //output will be 45
-        </pre>
-      </code>
-      <h3>4) Return all the prime numbers in an array</h3>
-      <code>
-        <pre>
-
-          (function findPrimes(arr) {
-            const primes = [];
-            for (let i = 0; i < arr.length; i++) {
-              let isPrime = true;
-              for (let j = 2; j < arr[i]; j++) {
-                if (arr[i] % j === 0) {
-                  isPrime = false;
-                  break;
-                }
-              }
-              if (isPrime && arr[i] > 1) {
-                primes.push(arr[i]);
-              }
-            }
-            console.log(primes);
-          })([1,2,3,4,5,6,7,8,9,11,13,17,19])
-          //output will be[2,3,5,7,11,13,17,19]
-        </pre>
-      </code>
-      <h3>5) Return all the palindromes in an array</h3>
-      <code>
-        <pre>
-          (function palindromes(data){
-            let palindromesArray=[];
-            for(i=0;i< data.length;i++){
-                if(data[i]==data[i].split('').reverse().join('')){
-                    palindromesArray.push(data[i]);
-                }
-            }
-            console.log(palindromesArray);
-            })(['nitin','malayalam','suriya','madam'])
-
-            //if forward & backward of sentence is same, then it will be displayed.
-        </pre>
-      </code>
-      <h3>6) Return median of two sorted arrays of the same size.</h3>
-      <code>
-        <pre>
-
-          (function median(a,b){
-            let concat=[...a,...b];
-            let result=[];
-            let length=concat.length;
-            if(length%2==0){
-                result.push(concat[length/2-1],concat[length/2])
-            }else{
-                result.push(concat[Math.floor(length/2)])
-            }
-            console.log(result);
-          })([1,2,3,4],[5,6,7,8])
-          //if input total length
-          is even will return median as two dight, if oreturn one dight 
-        </pre>
-      </code>
-      <h3>7) Remove duplicates from an array</h3>
-      <code>
-        <pre>
-
-    <i>method 1: by indexof</i> 
-          (function indexMethod(arr){
-          let unique = arr.filter((item, index) => {
-          return arr.indexOf(item) === index;});
-          console.log(unique);
-          })([1, 2, 2, 3, 4, 4, 5])
-          //output will be [ 1, 2, 3, 4, 5 ]
-
-    <i>method 2: by using set</i> 
-          (function setMethod(arr){
-            console.log([...new Set(arr)]);
-          })([1, 2, 2, 3, 4, 4, 5])
-          //output will be [ 1, 2, 3, 4, 5 ]  
-     </pre>
-      </code>
-      <h3>8) Rotate an array by k times</h3>
-      <code>
-        <pre>
-          (function arrayRotation(a,b){
-            let result=[];
-          for(z=0;z< a.length;z++){
-              result.push(0)
-          }
-          for(i=0;i< b;i++){
-              for(j=0;j< a.length;j++){
-                  if(j==0){
-                      result[a.length-1]=a[0]
-                  }      
-                  else{
-                  result[j-1]=a[j]
-                  }
-                  if(j==a.length-1){
-                      a=[...result];
-                  }
-              }
-          }
-          console.log(a);
-          })([1,2,3,4,5],3)
-          // output will be array with k times rotated
-        </pre>
-      </code>
+      <br />
+      <i class="line"
+        >Note: above code already executed on same page, please check
+        console.log</i
+      >
     </div>
-    <div class="wrapper" id="arrow">
-      <h1>Program using Arrow Function</h1>
-      <h3>1) Print odd numbers in an array</h3>
-      <code>
-        <pre>
-          
-          let odd=(arr)=>{
-              let result=[];
-              for(i=0;i< arr.length;i++){
-                  if(arr[i]%2==1){
-                      result.push(arr[i])
-                  }
-              }
-              return result;
-          }
-          let array=[1,2,3,4,5,6,7,8,9]
-          console.log(odd(array)); //output will be [1,3,5,7,9]
-        </pre>
-      </code>
-      <h3>2) Convert all the strings to title caps in a string array</h3>
-      <code>
-        <pre>
-
-          let caps=(arr)=>{
-            let result=[];
-            for(i=0;i< arr.length;i++){
-                    result.push(arr[i].toUpperCase())
-            }
-            return result;
-          }
-          let array=['s','u','r','i','y','a']
-          console.log(caps(array)); 
-          //output will be [ 'S', 'U', 'R', 'I', 'Y', 'A' ]
-        </pre>
-      </code>
-      <h3>3) Sum of all numbers in an array</h3>
-      <code>
-        <pre>
-
-          let sum=(arr)=>{
-            let result=0;
-            for(i=0;i< arr.length;i++){
-                    result+=+arr[i];
-            }
-            return result;
-          }
-          let array=[1,2,3,4,5,6,7,8,9]
-          console.log(sum(array)); //output will be 45
-        </pre>
-      </code>
-      <h3>4) Return all the prime numbers in an array</h3>
-      <code>
-        <pre>
-          let findPrimes=>(arr) {
-            const primes = [];
-            for (let i = 0; i < arr.length; i++) {
-              let isPrime = true;
-              for (let j = 2; j < arr[i]; j++) {
-                if (arr[i] % j === 0) {
-                  isPrime = false;
-                  break;
-                }
-              }
-              if (isPrime && arr[i] > 1) {
-                primes.push(arr[i]);
-              }
-            }
-            return primes;
-          }
-          let array=[1,2,3,4,5,6,7,8,9,11,13,17,19]
-          //output will be[2,3,5,7,11,13,17,19]
-        </pre>
-      </code>
-      <h3>5) Return all the palindromes in an array</h3>
-      <code>
-        <pre>
-          let data1=['nitin','malayalam','suriya','madam'];
-          let palindromesArray1=[];
-          var palindromes=(data)=>{
-              for(i=0;i< data.length;i++){
-                  if(data[i]==data[i].split('').reverse().join('')){
-                      palindromesArray1.push(data[i]);
-                  }
-              }
-              return palindromesArray1;
-            }
-            console.log(palindromes(data1))//if forward & backward of sentence is same result will be true.
-        </pre>
-      </code>
+    <div class="wrapper" id="dif">
+      <h1>difference between window screen and document in javascript</h1>
+      <h3>window</h3>
+      <p>
+        Each browser tab has its own top-level window object. Each iframe and
+        deprecated frame element has its own window object too, nested within a
+        parent window. Each of these windows gets its own separate global
+        object. window.window always refers to window, but window.parent and
+        window.top might refer to enclosing windows, giving access to other
+        execution contexts. In addition to document and screen described below,
+        window properties include
+      </p>
+      <ul>
+        <li>
+          <span>setTimeout() and setInterval()</span> binding event handlers to
+          a timer
+        </li>
+        <li><span>location</span> giving the current URL</li>
+        <li>
+          <span>history</span> with methods back() and forward() giving the
+          tab's mutable history
+        </li>
+        <li><span>navigator</span> describing the browser software</li>
+      </ul>
+      <hr />
+      <h3>document</h3>
+      <p>
+        Each window object has a document object to be rendered. These objects
+        get confused in part because HTML elements are added to the global
+        object when assigned a unique id.
+      </p>
+      <br />
+      the paragraph element can be referenced by any of the following:
+      <ul>
+        <li>document.getElementById("id")</li>
+        <li>document.querySelector("#id")</li>
+        <li>document.body.firstChild</li>
+        <li>document.body.children[0]</li>
+      </ul>
+      <hr />
+      <h3>screen</h3>
+      <p>
+        The window object also has a screen object with properties describing
+        the physical display:
+      </p>
+      <ul>
+        <li>screen properties width and height are the full screen</li>
+        <li>screen properties availWidth and availHeight omit the toolbar</li>
+      </ul>
     </div>
-    <script src="./JS/Function.js"></script>
-    <script src="./JS/IIFE.js"></script>
-    <script src="./JS/ArrowFunction.js"></script>
+    <script src="./JS/loop.js"></script>
+    <script src="./JS/resume.js"></script>
   </body>
 </html>
