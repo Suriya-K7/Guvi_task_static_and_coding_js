@@ -1,4 +1,4 @@
-# [🔗 GUVI Day four task](https://suriya-k7.github.io/Guvi_day_4_task/)
+# [🔗 GUVI Day four task](https://task-04-guvi-static-code-js.netlify.app/)
 
 - Do the below programs in anonymous function & IIFE
   - Print odd numbers in an array
@@ -23,6 +23,6 @@
 
 ## Created task deployed on below link :
 
-<a href="https://suriya-k7.github.io/Guvi_day_4_task/" target="_blank">https://suriya-k7.github.io/Guvi_day_4_task/</a>
+<a href="https://task-04-guvi-static-code-js.netlify.app/" target="_blank">https://task-04-guvi-static-code-js.netlify.app/</a>
 
 > <h2 style="color:yellow;text-decoration:underline;">Note: Javascript files for all mentioned task stored in JS folder kindly check</h2>
