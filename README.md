@@ -1,4 +1,4 @@
-# [🔗 GUVI Day six task](https://suriya-k7.github.io/Guvi_day_6_task/)
+# [🔗 GUVI Day six task](https://task-06-guvi-static-code-js.netlify.app/)
 
 - #### https://github.com/rvsp/typescript-oops/blob/master/Practice/Movie.md
   - Write a “movie” class to hold all the details.
@@ -11,6 +11,6 @@
 
 ## Created task deployed on below link :
 
-<a href="https://suriya-k7.github.io/Guvi_day_6_task/" target="_blank">https://suriya-k7.github.io/Guvi_day_6_task/</a>
+<a href="https://task-06-guvi-static-code-js.netlify.app/" target="_blank">https://task-06-guvi-static-code-js.netlify.app/</a>
 
 > <h2 style="color:yellow;text-decoration:underline;">Note: Javascript files for all mentioned task stored in JS folder kindly check</h2>
