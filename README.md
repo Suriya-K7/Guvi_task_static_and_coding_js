@@ -7,6 +7,6 @@
 
 <br>
 
-[🔗 click here !](https://suriya-k7.github.io/Day_1_task/)
+[🔗 click here !](https://task-01-guvi-static-code-js.netlify.app/)
 
-https://suriya-k7.github.io/Day_1_task/
+https://task-01-guvi-static-code-js.netlify.app/
