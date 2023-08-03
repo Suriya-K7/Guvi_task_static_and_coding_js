@@ -1,4 +1,4 @@
-for the given JSON iterate over all loop( for, for in, for of, forEach)
-create resume data in JSON format
-difference b/w window, screen & document in JS
-codekata practice(doing daily)
+https://github.com/rvsp/typescript-oops/blob/master/Practice/Movie.md
+https://github.com/rvsp/typescript-oops/blob/master/Practice/class-circle.md
+Write a “person” class to hold all the details.
+write a class to calculate the uber price.

@@ -4,315 +4,180 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day 05 - task</title>
+    <title>Day 06 - task</title>
     <link rel="stylesheet" href="./CSS/style.css" />
   </head>
   <body>
-    <header>Day five - Task (by - Udhayasooriyan)</header>
+    <header>Day six - Task (by - Udhayasooriyan)</header>
     <nav>
-      <a href="#method">JSON Iterating methods</a>
-      <a href="#resume">Json format Resume Data</a>
-      <a href="#dif">diff b/w window, screen, document</a>
+      <a href="#mov">Class - Movie</a>
+      <a href="#circle">Class - Circle</a>
+      <a href="#person">Class - Person</a>
+      <a href="#uber">Class - Uber</a>
     </nav>
-    <div class="wrapper" id="method">
-      <h1>JSON iterate methods using (for, for in, for of, forEach)</h1>
-      <h2>JavaScript Loops</h2>
-      <p class="intend">
-        Loops are handy, if you want to run the same code over and over again,
-        each time with a different value.Often this is the case when working
-        with arrays.
-      </p>
-      <h2>Different Kinds of Loops</h2>
-      <pre>JavaScript supports different kinds of loops:</pre>
-      <ul>
-        <li>
-          <span>for -</span> loops through a block of code a number of times
-        </li>
-        <li><span>for/in -</span> loops through the properties of an object</li>
-        <li>
-          <span>for/of -</span> loops through the values of an iterable object
-        </li>
-        <li>
-          <span>forEach -</span> loops through a block of code while a specified
-          condition is true
-        </li>
-      </ul>
+    <div class="wrapper" id="mov">
+      <h1>Class - Movie</h1>
       <hr />
-      <h3>iteration using for loop</h3>
-      <pre>The for statement creates a loop with 3 optional expressions:</pre>
+      <h3>Code shown below</h3>
       <code>
         <pre>
-          for (expression 1; expression 2; expression 3) {
-            // code block to be executed
-          }
+
+    class Movie {
+      constructor(title, studio, rating = "PG") {
+        this.title = title;
+        this.studio = studio;
+        this.rating = rating;
+      }
+      getPG(movies) {
+        return movies.filter(movie => movie.rating == "PG");
+      }
+    }
+    let casinoRoyale = new Movie("Casino Royale","Eon Productions", "PG-13");
+    console.log(casinoRoyale); // Movie { titl'Casino Royale',  studio: 'Eon Productions'rating: 'PG-13' }
+
+    casinoRoyale = new Movie("Casino Royale", "Eon Productions");
+    console.log(casinoRoyale); // Movie { titl'Casino Royale',  studio: 'Eon Productions'rating: 'PG' }
+     If there is no rating details then it will take PG as default value
         </pre>
       </code>
-      <h3>on above statement:</h3>
-      <p>
-        expression 1: it can be declared outside for loop; <br />
-        expression 2: is mandatory, but if not declared, loop will never end.
-        for we need to put break when required.
-        <br />
-        expression 3: can do anything like negative increment (i--), positive
-        increment (i = i + 15), or anything else as per requirement for looping.
-      </p>
-      <h3>example shown below</h3>
-      <code>
-        <pre>
-          let employees=[
-          {"firstName":"John", "lastName":"Doe"},
-          {"firstName":"Anna", "lastName":"Smith"},
-          {"firstName":"Peter", "lastName":"Jones"}
-          ]
-        
-          for(i=0;i < employees.length;i++){
-              console.log(employees[i])
-          }
-          output will be :
-          { firstName: 'John', lastName: 'Doe' }
-          { firstName: 'Anna', lastName: 'Smith' }
-          { firstName: 'Peter', lastName: 'Jones' }
-        </pre>
-      </code>
-      <i>above code iterated 3 time and printed 3 results.</i>
-      <br />
       <i class="line"
-        >Note: above code already executed on same page, please check
-        console.log</i
-      >
-      <hr />
-      <h3>iteration using for in loop</h3>
-      <p>
-        The JavaScript for in statement loops through the properties of an
-        Object:
-      </p>
-      <code>
-        <pre>
-          syntax
-          for (key in object) {
-            // code block to be executed
-          }
-        </pre>
-      </code>
-      <ul>
-        <li>The for in loop iterates over a mentioned object</li>
-        <li>Each iteration returns a key</li>
-        <li>The key is used to access the value of the key</li>
-        <li>The value of the key is mentioned object key's value</li>
-      </ul>
-      <p>example shown below</p>
-      <code>
-        <pre>
-          let person = {fname:"John", lname:"Doe", age:25};
-          for (let key in person) {
-            console.log(`${key} : ${person[key]}`)
-          } 
-          output will be :
-          fname : John
-          lname : Doe
-          age : 25
-        </pre>
-      </code>
-      <i>
-        above code iterated as per keys in an object and printed the results.
-        FYI this also can be used to iterate arrays also.
-      </i>
-      <br />
-      <i class="line"
-        >Note: above code already executed on same page, please check
-        console.log</i
-      >
-      <hr />
-      <h3>iteration using for of loop</h3>
-      <p>
-        The JavaScript for of statement loops through the values of an iterable
-        object.
-      </p>
-      <p>
-        It lets you loop over iterable data structures such as Arrays, Strings,
-        Maps, NodeLists, and more:
-      </p>
-      <code>
-        <pre>
-          syntax
-          for (variable of iterable) {
-            // code block to be executed
-          }
-        </pre>
-      </code>
-      <ul>
-        <li>
-          variable - For every iteration the value of the next property is
-          assigned to the variable. Variable can be declared with const, let, or
-          var.
-        </li>
-        <li>iterable - An object that has iterable properties.</li>
-      </ul>
-      <p>example shown below</p>
-      <code>
-        <pre>
-          let person = {fname:"John", lname:"Doe", age:25};
-          for (let key of Object.keys(person)) {
-            console.log(`${key} : ${person[key]}`)
-          }
-          output will be :
-          fname : John
-          lname : Doe
-          age : 25
-        </pre>
-      </code>
-      <i>
-        above code iterated as per keys in an object and printed the results.
-        FYI this also can be used to iterate arrays, map, set also
-      </i>
-      <br />
-      <i class="line"
-        >Note: above code already executed on same page, please check
-        console.log</i
-      >
-      <hr />
-      <h3>iteration using forEach method</h3>
-      <p>The forEach() method calls a function for each element in an array.</p>
-      <p>Note : The forEach() method is not executed for empty elements.</p>
-      <code>
-        <pre>
-          syntax
-          array.forEach(function(currentValue, index, arr), thisValue)</pre
-        >
-      </code>
-      <ul>
-        <h3>parameters</h3>
-        <li>
-          <i>function()</i> -- Required. A function to run for each array
-          element.
-        </li>
-        <li>
-          currentValue<i></i> -- Required. The value of the current element.
-        </li>
-        <li>index<i></i> -- Optional. The index of the current element.</li>
-        <li>arr<i></i> -- Optional. The array of the current element.</li>
-        <li>
-          thisValue<i></i> -- Optional. Default undefined. A value passed to the
-          function as its this value.
-        </li>
-      </ul>
-      <p>example shown below</p>
-      <code>
-        <pre>
-          let person = {fname:"John", lname:"Doe", age:25};
-          Object.keys(person).forEach(function(key) {
-            console.log(`${key} : ${person[key]}`);
-          });
-          output will be :
-          fname : John
-          lname : Doe
-          age : 25
-        </pre>
-      </code>
-      <i>
-        Note: Under ECMAScript 5, you have to combine Object.keys() and
-        Array.prototype.forEach(): for using forEach method in object
-      </i>
-      <br />
-      <i class="line"
-        >Note: above code already executed on same page, please check
-        console.log</i
+        >note : above code already executed in these same page, kindly check in
+        Console.log</i
       >
     </div>
-    <div class="wrapper" id="resume">
-      <h1>Creating Resume in Json format</h1>
+    <div class="wrapper" id="circle">
+      <h1>Class - Circle</h1>
+      <hr />
+      <h3>Code shown below</h3>
       <code>
         <pre>
-{ "Name": "Udhayasooriyan Kesavamurthy",
-"email": "usraising@gmail.com",
-"phone": "7639718893",
-"address": {
-"street": "17 west street, injikudi",
-"city": "Thiruvarur",
-"state": "Tamil Nadu",
-"Pin code": "609405"
-},
-"summary": "Experienced software developer with a focus on web applications and a passion for problem-solving.",
-"work_experience":{
-"company": "XYZ Inc",
-"position": "Full Stack Developer",
-"start_date": "zzzz-yy-xx",
-"end_date": "zzzz-yy-xx",
-"description": "Developed and maintained web applications using Node.js, React, and MongoDB."
-},
-"education":{
-"degree": "Diploma of Electrical & Electronics Engineering",
-"institution": "AVC Polytechnic college",
-"graduation_year": "2012"},
-"skills": [
-{"category": "Programming Languages",
-"items": ["Java", "JavaScript", "Python"]
-},
-{"category": "Frameworks and Libraries",
-"items": ["JavaScript", "React", "Node.js"]},
-{"category": "Databases",
-"items": ["MySQL", "MongoDB"]}
-]}
-</pre
-        >
+    class Circle {
+      constructor(radius=1,color="red") {
+        this.radius = radius;
+        this.color = color;
+      }
+      get Radius(){
+          return this.radius;
+      }
+      get Color(){
+          return this.color;
+      }
+      get Diameter(){
+          return (this.radius * 2)
+      }
+      set Diameter(diameter){
+          this.radius = diameter/2;
+      }
+      get Area(){
+          return (Math.PI*Math.pow(this.radius,2).toFixed(2));
+      }
+      get Circumference(){
+          return (2 * Math.PI * this.radius).toFixed(2);
+      }
+      get toString(){
+          return `Circle[radius=${this.radius},color=${this.color}]`
+      }
+    }
+          
+    let circle = new Circle(4);
+    console.log("area of circle using radius");
+    console.log(circle.Area);
+    console.log("area of circle using diameter by using setter method");
+    circle.Diameter = 4;
+    console.log(circle.Area);
+        </pre>
       </code>
-      <br />
       <i class="line"
-        >Note: above code already executed on same page, please check
-        console.log</i
+        >note : above code already executed in these same page, kindly check in
+        Console.log</i
       >
     </div>
-    <div class="wrapper" id="dif">
-      <h1>difference between window screen and document in javascript</h1>
-      <h3>window</h3>
-      <p>
-        Each browser tab has its own top-level window object. Each iframe and
-        deprecated frame element has its own window object too, nested within a
-        parent window. Each of these windows gets its own separate global
-        object. window.window always refers to window, but window.parent and
-        window.top might refer to enclosing windows, giving access to other
-        execution contexts. In addition to document and screen described below,
-        window properties include
-      </p>
-      <ul>
-        <li>
-          <span>setTimeout() and setInterval()</span> binding event handlers to
-          a timer
-        </li>
-        <li><span>location</span> giving the current URL</li>
-        <li>
-          <span>history</span> with methods back() and forward() giving the
-          tab's mutable history
-        </li>
-        <li><span>navigator</span> describing the browser software</li>
-      </ul>
+    <div class="wrapper" id="person">
+      <h1>Class - Person</h1>
       <hr />
-      <h3>document</h3>
-      <p>
-        Each window object has a document object to be rendered. These objects
-        get confused in part because HTML elements are added to the global
-        object when assigned a unique id.
-      </p>
-      <br />
-      the paragraph element can be referenced by any of the following:
-      <ul>
-        <li>document.getElementById("id")</li>
-        <li>document.querySelector("#id")</li>
-        <li>document.body.firstChild</li>
-        <li>document.body.children[0]</li>
-      </ul>
-      <hr />
-      <h3>screen</h3>
-      <p>
-        The window object also has a screen object with properties describing
-        the physical display:
-      </p>
-      <ul>
-        <li>screen properties width and height are the full screen</li>
-        <li>screen properties availWidth and availHeight omit the toolbar</li>
-      </ul>
+      <h3>Code shown below</h3>
+      <code>
+        <pre>
+    class Person {
+      constructor(firstName, lastName, age, email, company) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.email = email;
+        this.company = company;
+      }
+          
+      details() {
+        return `${this.firstName} ${this.lastName} is ${this.age} years old,
+    and he is working in ${this.company}. for moinformation contact him '${this.email}'`
+      }
+    }
+    let suriya = new Person("Udhayasooriyan","kesavamurthy",28,"usraising@gmail.com","GUVI");
+    console.log(suriya.details());
+    //output Udhayasooriyan kesavamurthy is 28 years old,
+    and he is working in GUVI. for more information contact him 'usraising@gmail.com'
+        </pre>
+      </code>
+      <i class="line"
+        >note : above code already executed in these same page, kindly check in
+        Console.log</i
+      >
     </div>
-    <script src="./JS/loop.js"></script>
-    <script src="./JS/resume.js"></script>
+    <div class="wrapper" id="uber">
+      <h1>Class - Uber</h1>
+      <hr />
+      <h3>Code shown below</h3>
+      <code>
+        <pre>
+          
+    class Uber {
+      constructor(name, from, to, distance,carType='UberXL') {
+        this.name = name;
+        this.from = from;
+        this.to = to;
+        this.distance = distance;
+        this.carType = carType;
+      }         
+      fare() {
+          let rate=0;
+          if(this.carType=='UberXL'){
+              rate=5;
+          }else if(this.carType=='Uber Comfort'){
+              rate=10;
+          }else if(this.carType=='Uber Black'){
+              rate=15;
+          }else if(this.carType=='Uber SUV'){
+              rate=20;
+          }else if(this.carType=='Uber WAV'){
+              rate=25;
+          }
+          let fare=this.distance*rate;   
+        return `${this.name} booked Uber in car type ${this.carType} from ${this.from} - to ${this.to}.
+        total distance for this ride is ${this.distance} KM & fare for this ride is ${fare} Rupees.`
+      }
+    }
+    let suriyaRide = new Uber("suriya", "tambaram","CMBT",25,"Uber Comfort");
+    console.log(suriyaRide.fare());
+
+    //output suriya booked Uber in car type Uber Comfort from tambaram - to CMBT.
+    total distance for this ride is 25 KM & fare for this ride is 250 Rupees.
+    
+    suriyaRide = new Uber("suriya", "tambaram","CMBT",20);
+    console.log(suriyaRide.fare());
+
+    //output suriya booked Uber in car type UberXL from tambaram - to CMBT.
+    total distance for this ride is 20 KM & fare for this ride is 100 Rupees.
+          
+        </pre>
+      </code>
+      <i class="line"
+        >note : above code already executed in these same page, kindly check in
+        Console.log</i
+      >
+    </div>
+    <script src="./JS/classMovie.js"></script>
+    <script src="./JS/classCircle.js"></script>
+    <script src="./JS/classPerson.js"></script>
+    <script src="./JS/classUber.js"></script>
   </body>
 </html>
