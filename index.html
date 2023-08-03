@@ -4,180 +4,158 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day 06 - task</title>
+    <title>Day 07 - task</title>
     <link rel="stylesheet" href="./CSS/style.css" />
   </head>
   <body>
-    <header>Day six - Task (by - Udhayasooriyan)</header>
+    <header>Day seven - Task (by - Udhayasooriyan)</header>
     <nav>
-      <a href="#mov">Class - Movie</a>
-      <a href="#circle">Class - Circle</a>
-      <a href="#person">Class - Person</a>
-      <a href="#uber">Class - Uber</a>
+      <a href="#asia">Filter Asia country</a>
+      <a href="#pop">Filter Population < 2 lakhs</a>
+      <a href="#foreach">ForEach function</a>
+      <a href="#reduce">Reduce function</a>
+      <a href="#cur">Display country uses USD</a>
     </nav>
-    <div class="wrapper" id="mov">
-      <h1>Class - Movie</h1>
-      <hr />
-      <h3>Code shown below</h3>
+    <div class="wrapper" id="asia">
+      <h1>
+        Get all the countries from the Asia continent /region using the Filter
+      </h1>
+      <h3>Code shown below :</h3>
       <code>
         <pre>
 
-    class Movie {
-      constructor(title, studio, rating = "PG") {
-        this.title = title;
-        this.studio = studio;
-        this.rating = rating;
-      }
-      getPG(movies) {
-        return movies.filter(movie => movie.rating == "PG");
-      }
-    }
-    let casinoRoyale = new Movie("Casino Royale","Eon Productions", "PG-13");
-    console.log(casinoRoyale); // Movie { titl'Casino Royale',  studio: 'Eon Productions'rating: 'PG-13' }
-
-    casinoRoyale = new Movie("Casino Royale", "Eon Productions");
-    console.log(casinoRoyale); // Movie { titl'Casino Royale',  studio: 'Eon Productions'rating: 'PG' }
-     If there is no rating details then it will take PG as default value
+            const req = new XMLHttpRequest();
+            req.open("GET", "https://restcountries.com/v3.1/all");
+            req.send();
+            req.addEventListener("load", request);
+            function request() {
+              let data = JSON.parse(this.responseText);
+              let asianCountries = data.filter((e) => {
+                if (e.continents[0] == "Asia") {
+                  return e;
+                }
+              });
+              console.log(asianCountries);
+            }
         </pre>
       </code>
       <i class="line"
-        >note : above code already executed in these same page, kindly check in
-        Console.log</i
+        >Note:- above code already executed on the same page,kindly check in
+        console.log</i
       >
     </div>
-    <div class="wrapper" id="circle">
-      <h1>Class - Circle</h1>
-      <hr />
-      <h3>Code shown below</h3>
+    <div class="wrapper" id="pop">
+      <h1>
+        Get all the countries with a population of less than 2 lakhs using
+        Filter function
+      </h1>
+      <h3>Code shown below :</h3>
       <code>
         <pre>
-    class Circle {
-      constructor(radius=1,color="red") {
-        this.radius = radius;
-        this.color = color;
-      }
-      get Radius(){
-          return this.radius;
-      }
-      get Color(){
-          return this.color;
-      }
-      get Diameter(){
-          return (this.radius * 2)
-      }
-      set Diameter(diameter){
-          this.radius = diameter/2;
-      }
-      get Area(){
-          return (Math.PI*Math.pow(this.radius,2).toFixed(2));
-      }
-      get Circumference(){
-          return (2 * Math.PI * this.radius).toFixed(2);
-      }
-      get toString(){
-          return `Circle[radius=${this.radius},color=${this.color}]`
-      }
-    }
-          
-    let circle = new Circle(4);
-    console.log("area of circle using radius");
-    console.log(circle.Area);
-    console.log("area of circle using diameter by using setter method");
-    circle.Diameter = 4;
-    console.log(circle.Area);
+
+            const req = new XMLHttpRequest();
+            req.open("GET", "https://restcountries.com/v3.1/all");
+            req.send();
+            req.addEventListener("load", request);
+            function request() {
+              let data = JSON.parse(this.responseText);
+              let Population = data.filter((e) => {
+                if (e.population < 200000) {
+                  return e;
+                }
+              });
+              console.log(Population);
+            }
         </pre>
       </code>
       <i class="line"
-        >note : above code already executed in these same page, kindly check in
-        Console.log</i
+        >Note:- above code already executed on the same page,kindly check in
+        console.log</i
       >
     </div>
-    <div class="wrapper" id="person">
-      <h1>Class - Person</h1>
-      <hr />
-      <h3>Code shown below</h3>
+    <div class="wrapper" id="foreach">
+      <h1>
+        Print the following details name, capital, flag using forEach function
+      </h1>
+      <h3>Code shown below :</h3>
       <code>
         <pre>
-    class Person {
-      constructor(firstName, lastName, age, email, company) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.email = email;
-        this.company = company;
-      }
-          
-      details() {
-        return `${this.firstName} ${this.lastName} is ${this.age} years old,
-    and he is working in ${this.company}. for moinformation contact him '${this.email}'`
-      }
-    }
-    let suriya = new Person("Udhayasooriyan","kesavamurthy",28,"usraising@gmail.com","GUVI");
-    console.log(suriya.details());
-    //output Udhayasooriyan kesavamurthy is 28 years old,
-    and he is working in GUVI. for more information contact him 'usraising@gmail.com'
+
+            const req = new XMLHttpRequest();
+            req.open("GET", "https://restcountries.com/v3.1/all");
+            req.send();
+            req.addEventListener("load", request);
+            function request() {
+              let data = JSON.parse(this.responseText);
+              data.forEach((e) => {
+                console.log(`Country Name : ${e.name.common},
+                Country Capital : ${e.capital},
+                Country flag : ${e.flag}`);
+              });
+            }
         </pre>
       </code>
       <i class="line"
-        >note : above code already executed in these same page, kindly check in
-        Console.log</i
+        >Note:- above code already executed on the same page,kindly check in
+        console.log</i
       >
     </div>
-    <div class="wrapper" id="uber">
-      <h1>Class - Uber</h1>
-      <hr />
-      <h3>Code shown below</h3>
+    <div class="wrapper" id="reduce">
+      <h1>Print the total population of countries using reduce function</h1>
+      <h3>Code shown below :</h3>
       <code>
         <pre>
-          
-    class Uber {
-      constructor(name, from, to, distance,carType='UberXL') {
-        this.name = name;
-        this.from = from;
-        this.to = to;
-        this.distance = distance;
-        this.carType = carType;
-      }         
-      fare() {
-          let rate=0;
-          if(this.carType=='UberXL'){
-              rate=5;
-          }else if(this.carType=='Uber Comfort'){
-              rate=10;
-          }else if(this.carType=='Uber Black'){
-              rate=15;
-          }else if(this.carType=='Uber SUV'){
-              rate=20;
-          }else if(this.carType=='Uber WAV'){
-              rate=25;
-          }
-          let fare=this.distance*rate;   
-        return `${this.name} booked Uber in car type ${this.carType} from ${this.from} - to ${this.to}.
-        total distance for this ride is ${this.distance} KM & fare for this ride is ${fare} Rupees.`
-      }
-    }
-    let suriyaRide = new Uber("suriya", "tambaram","CMBT",25,"Uber Comfort");
-    console.log(suriyaRide.fare());
 
-    //output suriya booked Uber in car type Uber Comfort from tambaram - to CMBT.
-    total distance for this ride is 25 KM & fare for this ride is 250 Rupees.
-    
-    suriyaRide = new Uber("suriya", "tambaram","CMBT",20);
-    console.log(suriyaRide.fare());
-
-    //output suriya booked Uber in car type UberXL from tambaram - to CMBT.
-    total distance for this ride is 20 KM & fare for this ride is 100 Rupees.
-          
+            const req = new XMLHttpRequest();
+            req.open("GET", "https://restcountries.com/v3.1/all");
+            req.send();
+            req.addEventListener("load", request);
+            function request() {
+              let data = JSON.parse(this.responseText);
+              let totalPopulation = data
+                .map((e) => {
+                  return e.population;
+                })
+                .reduce((acc, cur) => acc += cur);
+              console.log("total population logged below using reduse");
+              console.log(totalPopulation);
+            }
         </pre>
       </code>
       <i class="line"
-        >note : above code already executed in these same page, kindly check in
-        Console.log</i
+        >Note:- above code already executed on the same page,kindly check in
+        console.log</i
       >
     </div>
-    <script src="./JS/classMovie.js"></script>
-    <script src="./JS/classCircle.js"></script>
-    <script src="./JS/classPerson.js"></script>
-    <script src="./JS/classUber.js"></script>
+    <div class="wrapper" id="cur">
+      <h1>Print the country which uses US Dollars as currency.</h1>
+      <h3>Code shown below :</h3>
+      <code>
+        <pre>
+            const req = new XMLHttpRequest();
+            req.open("GET", "https://restcountries.com/v3.1/all");
+            req.send();
+            req.addEventListener("load", request);
+            function request() {
+            let data = JSON.parse(this.responseText);
+            let filteredCountryWithCurrencies=data.filter((e) => {
+              if(e.currencies!=undefined){
+                  return e;
+              }
+            });
+            filteredCountryWithCurrencies.forEach((e)=>{
+              if(e.currencies.USD){
+                  console.log(e.name.common)
+              }
+            })
+            }
+        </pre>
+      </code>
+      <i class="line"
+        >Note:- above code already executed on the same page,kindly check in
+        console.log</i
+      >
+    </div>
+    <script src="./JS/day7Task.js"></script>
   </body>
 </html>
