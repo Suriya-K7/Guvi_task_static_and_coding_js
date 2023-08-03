@@ -1,4 +1,4 @@
-# [🔗 GUVI Day seven task](https://suriya-k7.github.io/Suriya-K7-Guvi_day_7_task/)
+# [🔗 GUVI Day seven task](https://task-07-guvi-static-code-js.netlify.app/)
 
 - Solving problems using array functions on the rest countries' data (https://restcountries.com/v3.1/all).
   - Get all the countries from the Asia continent /region using the Filter function
@@ -9,6 +9,6 @@
 
 ## Created task deployed on below link :
 
-<a href="https://suriya-k7.github.io/Suriya-K7-Guvi_day_7_task/" target="_blank">https://suriya-k7.github.io/Suriya-K7-Guvi_day_7_task/</a>
+<a href="https://task-07-guvi-static-code-js.netlify.app/" target="_blank">https://task-07-guvi-static-code-js.netlify.app/</a>
 
 > <h2 style="color:yellow;text-decoration:underline;">Note: Javascript files for all mentioned task stored in JS folder kindly check</h2>
