@@ -1,4 +1,4 @@
-# [🔗 GUVI Day two task](https://suriya-k7.github.io/Guvi_day_2_task/)
+# [🔗 GUVI Day two task](https://task-02-guvi-static-code-js.netlify.app/)
 
 - write a blog on the difference between document & window object
 
@@ -6,4 +6,4 @@
 
 <br>
 
-https://suriya-k7.github.io/Guvi_day_2_task/
+https://task-02-guvi-static-code-js.netlify.app/
