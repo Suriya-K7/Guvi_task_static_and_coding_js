@@ -1,2 +1,4 @@
-write a blog on the difference between document & window object
-codekata practice(doing daily)
+how to compare two JSON have same properties without order in javascript? let obj1={name:"person",age:5} , let obj2={age:5, name:"person"}
+use the rest countries API URL-> https://restcountries.com/v3.1/all and display all the country flags in the console 
+use the same rest countries API and print all the countries names, regions sun-regions & population
+https://medium.com/@reach2arunprakash/www-guvi-io-zen-d395deec1373

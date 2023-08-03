@@ -4,74 +4,160 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day 02 - task</title>
+    <title>Day 03 - task</title>
     <link rel="stylesheet" href="./CSS/style.css" />
   </head>
   <body>
-    <header>Day two - Task (by - Udhayasooriyan)</header>
-    <div class="wrapper" id="dif">
-      <h1>Diff B/W Document & window objects</h1>
-      <h3>Browser Object Model (BOM)</h3>
-      <p>
-        The Browser Object Model contains objects that represent the current
-        browser window or tab. The topmost object in the BOM is the window
-        object representing the window or tab or an iframe sometimes. Window
-        object has properties like browser history, location and the device’s
-        screen etc. In case of multi tab browser, a window object represents a
-        single tab, but some of its properties like innerHeight, innerWidth and
-        methods like resizeTo() will affect the whole browser window.
-      </p>
-      <h3>Document Object Model</h3>
-      <p>
-        When a web page is loaded, the browser creates a Document Object Model
-        of the page. The document object represents the whole html document as a
-        tree of Objects(HTML, HEAD, BODY, and other HTML tags). It is the root
-        element that represents the html document.
-      </p>
-      <img src="./Images/1.webp" id="img1" />
-      <i>above image shows difference between window and document.</i>
-      <h3>Window Vs Document</h3>
-      <p>
-        <span>Window object :</span> It is the top most object and outermost
-        element of the object hierarchy as shown in Figure 1.
-      </p>
-      <p>
-        <span>Document object : </span> Each HTML document that gets loaded into
-        a window becomes a document object. The document contains the contents
-        of the page. Using document object, JavaScript can modify, add and
-        delete the HTML elements, attributes CSS styles in the page
-      </p>
-      <p>
-        The window object represents a window/tab containing a DOM document
-        where as document object is property of window object that points to the
-        DOM document loaded in that window.
-      </p>
-      <p>
-        You can access a document object either using window.document property
-        or using document object directly as window is global object. In the
-        below example, title is the property of document object.
-      </p>
-      <img src="./Images/2.webp" id="img1" />
-      <p>
-        The other major difference is that both window object and document
-        object have properties and methods. Few method names are same in both
-        objects but with different behavior. In the below example window.open()
-        opens a new tab or window and document.open() creates a blank document
-        within the window.
-      </p>
-      <img src="./Images/3.webp" id="img1" />
-      <h3>Screen</h3>
-      <p>
-        Screen is the window property that holds information of browser screen.
-        It refers to screen object associated with that window object. Used to
-        display screen width, height, colorDepth, pixelDepth etc
-      </p>
-      <p>
-        Similar to document screen can be accessed either by window.screen or
-        screen object directly. Screen object doesn't have any methods as in
-        window and document objects.
-      </p>
-      <img src="./Images/4.webp" id="img1" />
+    <header>Day three - Task (by - Udhayasooriyan)</header>
+    <nav>
+      <a href="#com">Comparing JSON</a>
+      <a href="#flag">Printing flag using API</a>
+      <a href="#all">Printing required data using API</a>
+    </nav>
+    <div class="wrapper" id="com">
+      <h1>
+        Comparing two JSON have same properties without order in javascript
+      </h1>
+      <h3>Method shown below</h3>
+      <code>
+        <pre>
+    let obj1 = {name: "person", age: 5};
+    let obj2 = {age: 5, name: "person"};
+    let result=true;
+    if(Object.keys(obj1).length==Object.keys(obj2).length){
+        for(key in obj1) { 
+            if(obj1[key] !== obj2[key]) {
+                result=false;
+                break;
+            }
+        }
+    }
+    else {
+        result=false;
+    }
+    console.log(result);
+        </pre>
+      </code>
+      <ul>
+        Explanation:
+        <li>
+          first need to check both value length, if it is not same, result will
+          be false
+        </li>
+        <li>
+          then using for in loop need to check Key of value 1 & value 2, if it
+          is not same result will be false
+        </li>
+      </ul>
+      <i class="line"
+        >Note: above code already executed on same page, kindly check
+        console.log</i
+      >
     </div>
+    <div class="wrapper" id="flag">
+      <h1>Using Rest country API displaying flags</h1>
+      <h3>Displaying flag using API code mentioned below:</h3>
+      <code>
+        <pre>
+   
+  const req = new XMLHttpRequest();
+  req.open("GET", "https://restcountries.com/v3.1/all");
+  req.send();
+  req.addEventListener("load", request);
+  function request() {
+    let data = JSON.parse(this.responseText);
+    for (i in data) {
+    console.log(data[i].flag);
+    }}     
+        </pre>
+      </code>
+      <h3>Explanation</h3>
+      <p>on above code mention</p>
+      <ul>
+        <li>first created a variable to request XMLHttpRequest</li>
+        <li>
+          next using req.open("GET", "https://restcountries.com/v3.1/all") in
+          this get is method & next is URL location;
+        </li>
+        <li>then sends the request to the server (used for GET)</li>
+        <li>
+          on above method data loaded on load time so using addEventListener
+          during loading time one function called request()
+        </li>
+        <li>
+          on request function, responseText parse as JSON & store in data as
+          JSON
+        </li>
+        <li>then using looping method flag printed in console</li>
+      </ul>
+      <i class="line"
+        >Note: above code already executed on same page, kindly check
+        console.log</i
+      >
+    </div>
+    <div class="wrapper" id="all">
+      <h1>Using Rest country API displaying Required data</h1>
+      <h3>Displaying required data using API code mentioned below:</h3>
+      <code>
+        <pre>
+   
+  const req = new XMLHttpRequest();
+  req.open("GET", "https://restcountries.com/v3.1/all");
+  req.send();
+  req.addEventListener("load", request);
+  function request() {
+    let data = JSON.parse(this.responseText);
+    for (i in data) {
+      console.log(
+        `Country Name : ${data[i].name.common},
+         Region: ${data[i].region},
+          Sunregion: ${data[i].subregion},
+           Population: ${data[i].population}`);
+    }}     
+        </pre>
+      </code>
+      <h3>Explanation</h3>
+      <p>on above code mention</p>
+      <ul>
+        <li>first created a variable to request XMLHttpRequest</li>
+        <li>
+          next using req.open("GET", "https://restcountries.com/v3.1/all") in
+          this get is method & next is URL location;
+        </li>
+        <li>then sends the request to the server (used for GET)</li>
+        <li>
+          on above method data loaded on load time so using addEventListener
+          during loading time one function called request()
+        </li>
+        <li>
+          on request function, responseText parse as JSON & store in data as
+          JSON
+        </li>
+        <li>then using looping method required data printed in console</li>
+      </ul>
+      <i class="line"
+        >Note: above code already executed on same page, kindly check
+        console.log</i
+      >
+    </div>
+    <script src="./JS/compareJSON.js"></script>
+    <script src="./JS/logFlagUsingAPI.js"></script>
+    <script src="./JS/logMentionedDataUsingAPI.js"></script>
+    <!-- <script>
+      console.log("script working");
+      const req = new XMLHttpRequest();
+      req.open("GET", "https://restcountries.com/v3.1/all");
+      req.send();
+      req.addEventListener("load", request);
+      function request() {
+        let data = JSON.parse(this.responseText);
+        for (i in data) {
+          console.log(`Country flag : ${data[i].flag}`);
+          console.log(
+            `Country Name : ${data[i].name.common}, Region: ${data[i].region}, Sunregion: ${data[i].subregion}, Population: ${data[i].population}`
+          );
+        }
+      }
+    </script> -->
   </body>
 </html>
