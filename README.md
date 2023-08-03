@@ -1,12 +1,9 @@
-# GUVI Day one task
+# [🔗 GUVI Day two task](https://suriya-k7.github.io/Guvi_day_2_task/)
 
-- Write a blog on Difference between HTTP1.1 vs HTTP2.
-- Write a blog about objects and its internal representation in Javascript
+- write a blog on the difference between document & window object
 
 ## Created blog deployed on below link :
 
 <br>
 
-[🔗 click here !](https://suriya-k7.github.io/Day_1_task/)
-
-https://suriya-k7.github.io/Day_1_task/
+https://suriya-k7.github.io/Guvi_day_2_task/

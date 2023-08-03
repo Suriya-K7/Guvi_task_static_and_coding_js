@@ -1,0 +1,2 @@
+write a blog on the difference between document & window object
+codekata practice(doing daily)
